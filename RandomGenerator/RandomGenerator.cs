@@ -7,7 +7,7 @@ namespace RandomGenerator
     /// <summary>
     /// Generates various random data such as names, vehicle makes and models, registration numbers and dates.
     /// </summary>
-    public class RandomGenerator
+    public class RandomGen
     {
         private Random _random = new Random();
 
@@ -142,7 +142,7 @@ namespace RandomGenerator
             "skär", "smaragdgrön", "snövit", "solgul", "svart", "turkos", "vinröd", "viol", "violett", "vit", "äggul"
         };
 
-        // A-Z but not I,V and Q followin the standards for Swedish vehicle registration numbers.
+        // A-Z but not I,V and Q following the standards for Swedish vehicle registration numbers.
         private const string _regNumChars = "ABCDEFGHJKLMNOPRSSTUXYZ";
 
         private enum _gender
