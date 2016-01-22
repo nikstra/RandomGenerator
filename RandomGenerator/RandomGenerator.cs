@@ -28,8 +28,8 @@ namespace RandomGenerator
                 "188 Agwagon", "190", "195" }
             },
             { "Douglas", new List<string> {
-                "DC-3", "TBD Devastator", "A-20 Havoc", "SBD Dauntless", "Douglas DC-4E", "B-23 Dragon",
-                "DC-4", "DC-5", "Douglas XB-19", "A-26 Invader", "BTD Destroyer", "XA-42", "A-1 Skyraider",
+                "DC-3", "TBD Devastator", "A-20 Havoc", "SBD Dauntless", "DC-4E", "B-23 Dragon",
+                "DC-4", "DC-5", "XB-19", "A-26 Invader", "BTD Destroyer", "XA-42", "A-1 Skyraider",
                 "C-74 Globemaster", "XB-43", "DC-6", "D-558-1 Skystreak", "D-558-2 Skyrocket", "F3D Skyknight",
                 "C-124 Globemaster II", "A2D Skyshark", "F4D Skyray", "A-3 Skywarrior", "X-3 Stiletto",
                 "A-4 Skyhawk", "B-66 Destroyer", "DC-7", "F5D Skylancer", "C-133 Cargomaster",
@@ -134,12 +134,12 @@ namespace RandomGenerator
         };
 
         private string[] _colors = {
-            "akvamarin", "aprikos", "babyblå", "becksvart", "beige", "blodröd", "blå", "blåklintsblå", "blåvit", "brandgul", "brun", "bärnstensgul",
-            "cerise", "citrongul", "cyan", "fuchsia", "gredelin", "gräddvit", "grå", "grön", "gul", "gyllenbrun", "havsblå", "indigo", "isabellafärgad",
-            "isblå", "jeansblå", "kaffebrun", "kaffefärgad", "kaki", "karmosinröd", "kastanjefärgad", "knallröd", "koboltblå", "kornblå", "lila",
-            "lingul", "ljusblå", "ljusgul", "ljusröd", "marinblå", "mint", "mörkblå", "mörkgrön", "mörklila", "mörkrosa", "olivgrön", "orange",
-            "purpur", "rosa", "röd", "scharlakansröd", "skär", "smaragdgrön", "snövit", "solgul", "svart", "turkos", "vinröd", "viol", "violett",
-            "vit", "äggul"
+            "akvamarin", "aprikos", "babyblå", "becksvart", "beige", "blodröd", "blå", "blåklintsblå", "blåvit", "brandgul", "brun",
+            "bärnstensgul", "cerise", "citrongul", "cyan", "fuchsia", "gredelin", "gräddvit", "grå", "grön", "gul", "gyllenbrun",
+            "havsblå", "indigo", "isabellafärgad", "isblå", "jeansblå", "kaffebrun", "kaffefärgad", "kaki", "karmosinröd",
+            "kastanjefärgad", "knallröd", "koboltblå", "kornblå", "lila", "lingul", "ljusblå", "ljusgul", "ljusröd", "marinblå",
+            "mint", "mörkblå", "mörkgrön", "mörklila", "mörkrosa", "olivgrön", "orange", "purpur", "rosa", "röd", "scharlakansröd",
+            "skär", "smaragdgrön", "snövit", "solgul", "svart", "turkos", "vinröd", "viol", "violett", "vit", "äggul"
         };
 
         // A-Z but not I,V and Q followin the standards for Swedish vehicle registration numbers.
@@ -153,35 +153,38 @@ namespace RandomGenerator
 
         private List<string>[] _firstNames = {
             new List<string>() {
-                "Agnes", "Alice", "Alicia", "Alma", "Alva", "Amanda", "Amelia", "Anna", "Astrid", "Celine", "Cornelia", "Ebba", "Edith", "Elin", "Elina",
-                "Elisa", "Elise", "Ella", "Ellen", "Ellie", "Ellinor", "Elsa", "Elvira", "Emelie", "Emilia", "Emma", "Emmy", "Ester", "Felicia", "Filippa",
-                "Freja", "Greta", "Hanna", "Hedda", "Hilda", "Hilma", "Ida", "Ines", "Ingrid", "Iris", "Isabella", "Isabelle", "Jasmine", "Jenny", "Joline",
-                "Julia", "Juni", "Klara", "Leah", "Leia", "Lilly", "Linn", "Linnea", "Lisa", "Liv", "Livia", "Lotta", "Lova", "Lovis", "Lovisa", "Luna",
-                "Lykke", "Maja", "Majken", "Maria", "Matilda", "Meja", "Melissa", "Minna", "Mira", "Moa", "Molly", "My", "Märta", "Nathalie", "Nellie",
-                "Nicole", "Nora", "Nova", "Novalie", "Olivia", "Ronja", "Rut", "Saga", "Sally", "Sara", "Selma", "Signe", "Sigrid", "Siri", "Sofia", "Stella",
-                "Stina", "Svea", "Thea", "Tilda", "Tilde", "Tindra", "Tuva", "Tyra", "Vera", "Victoria", "Wilma"
+                "Agnes", "Alice", "Alicia", "Alma", "Alva", "Amanda", "Amelia", "Anna", "Astrid", "Celine", "Cornelia", "Ebba", "Edith",
+                "Elin", "Elina", "Elisa", "Elise", "Ella", "Ellen", "Ellie", "Ellinor", "Elsa", "Elvira", "Emelie", "Emilia", "Emma",
+                "Emmy", "Ester", "Felicia", "Filippa", "Freja", "Greta", "Hanna", "Hedda", "Hilda", "Hilma", "Ida", "Ines", "Ingrid",
+                "Iris", "Isabella", "Isabelle", "Jasmine", "Jenny", "Joline", "Julia", "Juni", "Klara", "Leah", "Leia", "Lilly", "Linn",
+                "Linnea", "Lisa", "Liv", "Livia", "Lotta", "Lova", "Lovis", "Lovisa", "Luna", "Lykke", "Maja", "Majken", "Maria",
+                "Matilda", "Meja", "Melissa", "Minna", "Mira", "Moa", "Molly", "My", "Märta", "Nathalie", "Nellie", "Nicole", "Nora",
+                "Nova", "Novalie", "Olivia", "Ronja", "Rut", "Saga", "Sally", "Sara", "Selma", "Signe", "Sigrid", "Siri", "Sofia",
+                "Stella", "Stina", "Svea", "Thea", "Tilda", "Tilde", "Tindra", "Tuva", "Tyra", "Vera", "Victoria", "Wilma"
             },
             new List<string>() {
-                "Adam", "Adrian", "Albin", "Alex", "Alexander", "Alfred", "Ali", "Alvin", "Anders", "Anton", "Aron", "Arvid", "August", "Axel", "Benjamin",
-                "Carl", "Casper", "Charlie", "Colin", "Daniel", "Dante", "David", "Ebbe", "Eddie", "Edward", "Edvin", "Elias", "Elis", "Elliot", "Elton",
-                "Elvin", "Emil", "Erik", "Felix", "Filip", "Frank", "Gabriel", "Gustav", "Hampus", "Harry", "Henry", "Hjalmar", "Hugo", "Isak", "Ivar", "Jack",
-                "Jacob", "Joel", "John", "Jonathan", "Josef", "Julian", "Kalle", "Kevin", "Leo", "Leon", "Liam", "Linus", "Loke", "Loui", "Love", "Lucas",
-                "Ludvig", "Malte", "Matteo", "Max", "Maximilian", "Melker", "Melvin", "Milo", "Milton", "Mio", "Mohamed", "Neo", "Nils", "Noah", "Noel",
-                "Oliver", "Olle", "Oscar", "Otto", "Rasmus", "Sam", "Samuel",  "Sebastian", "Sigge", "Simon", "Sixten", "Svante", "Tage", "Theo", "Theodor",
+                "Adam", "Adrian", "Albin", "Alex", "Alexander", "Alfred", "Ali", "Alvin", "Anders", "Anton", "Aron", "Arvid", "August",
+                "Axel", "Benjamin", "Carl", "Casper", "Charlie", "Colin", "Daniel", "Dante", "David", "Ebbe", "Eddie", "Edward", "Edvin",
+                "Elias", "Elis", "Elliot", "Elton", "Elvin", "Emil", "Erik", "Felix", "Filip", "Frank", "Gabriel", "Gustav", "Hampus",
+                "Harry", "Henry", "Hjalmar", "Hugo", "Isak", "Ivar", "Jack", "Jacob", "Joel", "John", "Jonathan", "Josef", "Julian",
+                "Kalle", "Kevin", "Leo", "Leon", "Liam", "Linus", "Loke", "Loui", "Love", "Lucas", "Ludvig", "Malte", "Matteo", "Max",
+                "Maximilian", "Melker", "Melvin", "Milo", "Milton", "Mio", "Mohamed", "Neo", "Nils", "Noah", "Noel", "Oliver", "Olle",
+                "Oscar", "Otto", "Rasmus", "Sam", "Samuel",  "Sebastian", "Sigge", "Simon", "Sixten", "Svante", "Tage", "Theo", "Theodor",
                 "Valter", "Vidar", "Viggo", "Viktor", "Vilgot", "Wilhelm", "Ville", "William", "Wilmer", "Vincent"
             }
         };
 
         private List<string> _lastNames = new List<string>() {
-            "Abrahamsson", "Ali", "Andersson", "Andreasson", "Arvidsson", "Axelsson", "Bengtsson", "Berg", "Berggren", "Berglund", "Bergman", "Bergqvist",
-            "Bergström", "Björk", "Björklund", "Blom", "Blomqvist", "Claesson", "Dahlberg", "Danielsson", "Ek", "Eklund", "Ekström", "Eliasson", "Engström",
-            "Eriksson", "Falk", "Forsberg", "Fransson", "Fredriksson", "Gran", "Gunnarsson", "Gustafsson", "Hansen", "Hansson", "Hedlund", "Hellström",
-            "Henriksson", "Hermansson", "Holm", "Holmberg", "Holmgren", "Holmqvist", "Håkansson", "Isaksson", "Jakobsson", "Jansson", "Johansson", "Jonasson",
-            "Jonsson", "Jönsson", "Karlsson", "Larsson", "Lind", "Lindberg", "Lindgren", "Lindholm", "Lindqvist", "Lindström", "Lund", "Lundberg", "Lundgren",
-            "Lundin", "Lundqvist", "Lundström", "Löfgren", "Magnusson", "Martinsson", "Mattsson", "Mohamed", "Månsson", "Mårtensson", "Nilsson", "Norberg",
-            "Nordin", "Nordström", "Nyberg", "Nyström", "Olofsson", "Olsson", "Persson", "Pettersson", "Pålsson", "Samuelsson", "Sandberg", "Sandström",
-            "Sjöberg", "Sjögren", "Skog", "Ström", "Strömberg", "Sundberg", "Sundström", "Svensson", "Söderberg", "Wallin", "Viklund", "Wikström", "Åberg",
-            "Åkesson", "Åström", "Öberg"
+            "Abrahamsson", "Ali", "Andersson", "Andreasson", "Arvidsson", "Axelsson", "Bengtsson", "Berg", "Berggren", "Berglund",
+            "Bergman", "Bergqvist", "Bergström", "Björk", "Björklund", "Blom", "Blomqvist", "Claesson", "Dahlberg", "Danielsson", "Ek",
+            "Eklund", "Ekström", "Eliasson", "Engström", "Eriksson", "Falk", "Forsberg", "Fransson", "Fredriksson", "Gran", "Gunnarsson",
+            "Gustafsson", "Hansen", "Hansson", "Hedlund", "Hellström", "Henriksson", "Hermansson", "Holm", "Holmberg", "Holmgren",
+            "Holmqvist", "Håkansson", "Isaksson", "Jakobsson", "Jansson", "Johansson", "Jonasson", "Jonsson", "Jönsson", "Karlsson",
+            "Larsson", "Lind", "Lindberg", "Lindgren", "Lindholm", "Lindqvist", "Lindström", "Lund", "Lundberg", "Lundgren", "Lundin",
+            "Lundqvist", "Lundström", "Löfgren", "Magnusson", "Martinsson", "Mattsson", "Mohamed", "Månsson", "Mårtensson", "Nilsson",
+            "Norberg", "Nordin", "Nordström", "Nyberg", "Nyström", "Olofsson", "Olsson", "Persson", "Pettersson", "Pålsson", "Samuelsson",
+            "Sandberg", "Sandström", "Sjöberg", "Sjögren", "Skog", "Ström", "Strömberg", "Sundberg", "Sundström", "Svensson", "Söderberg",
+            "Wallin", "Viklund", "Wikström", "Åberg", "Åkesson", "Åström", "Öberg"
         };
 
         /// <summary>
