@@ -277,7 +277,7 @@ namespace RandomGenerator
             {
                 string rn = "";
 
-                for (int j = 0; j < 3; j++)
+                for (int i = 0; i < 3; i++)
                     rn += _regNumChars[_random.Next(_regNumChars.Length)];
 
                 rn += string.Format("{0:D3}", _random.Next(1000));
@@ -320,8 +320,8 @@ namespace RandomGenerator
                     new Tuple<string, string>(
                         _firstNames[gender][_random.Next(_firstNames[gender].Count)],
                         _lastNames[_random.Next(_lastNames.Count)]
-                        )
-                    );
+                    )
+                );
             }
 
             return people;
