@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Garage2.Utilities
+namespace RandomGenerator
 {
     /// <summary>
     /// Generates various random data such as names, vehicle makes and models, registration numbers and dates.
