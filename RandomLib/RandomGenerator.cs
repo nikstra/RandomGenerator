@@ -144,7 +144,7 @@ namespace RandomLib
         };
 
         // A-Z but not I,V and Q following the standards for Swedish vehicle registration numbers.
-        private const string _regNumChars = "ABCDEFGHJKLMNOPRSSTUXYZ";
+        private const string _regNumChars = "ABCDEFGHJKLMNOPRSTUWXYZ";
 
         private enum _gender
         {
@@ -285,9 +285,12 @@ namespace RandomLib
         /// </summary>
         /// <param name="count">Number of items to generate.</param>
         /// <param name="countryCode">Generate registration numbers used by specified country.</param>
-        /// <returns>A list of registration numbers.</returns>
+        /// <returns>A list of registration numbers (limited to 12167000 items).</returns>
         public List<string> RegNumbers(int count, string countryCode = "sv")
         {
+            // Maximum possible registration numbers: 23*23*23*10*10*10 = 12167000
+            if (count > 12167000) count = 12167000;
+
             HashSet<string> regNums = new HashSet<string>();
 
             while (regNums.Count < count)

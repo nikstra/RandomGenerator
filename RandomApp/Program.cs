@@ -11,7 +11,7 @@ namespace RandomApp
             int count = 100;
             RandomGenerator randGen = new RandomGenerator();
 
-            foreach( Tuple<string, string> aeroplane in randGen.AeroplaneModels(count))
+            foreach ( Tuple<string, string> aeroplane in randGen.AeroplaneModels(count))
                 Console.WriteLine(aeroplane.Item1 + " " + aeroplane.Item2);
 
             foreach (Tuple<string, string> boat in randGen.BoatModels(count))
