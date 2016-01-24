@@ -320,11 +320,11 @@ namespace RandomLib
         /// <summary>
         /// Generates a random first name.
         /// </summary>
-        /// <param name="gender">Gender (0=female, 1=male, 2=both).</param>
+        /// <param name="gender">Gender (0=female, 1=male, 2=any).</param>
         /// <returns>A name as a string.</returns>
-        public string FirstName(int gender = (int)Gender.both)
+        public string FirstName(int gender = (int)Gender.any)
         {
-            if (gender == (int)Gender.both)
+            if (gender == (int)Gender.any)
                 gender = _random.Next(2);
 
             return _firstNames[gender][_random.Next(_firstNames[gender].Count)];
@@ -334,9 +334,9 @@ namespace RandomLib
         /// Generates a random list of first names.
         /// </summary>
         /// <param name="count">Number of names to generate.</param>
-        /// <param name="gender">Gender (0=female, 1=male, 2=both).</param>
+        /// <param name="gender">Gender (0=female, 1=male, 2=any).</param>
         /// <returns>A list of first names as strings.</returns>
-        public List<string> FirstNames(int count, int gender = (int)Gender.both)
+        public List<string> FirstNames(int count, int gender = (int)Gender.any)
         {
             List<string> names = new List<string>();
 
@@ -375,7 +375,7 @@ namespace RandomLib
         /// </summary>
         /// <param name="count">Number of items to generate.</param>
         /// <returns>A list of first name/last name tuples.</returns>
-        public List<Tuple<string, string>> People(int count, int gender = (int)Gender.both)
+        public List<Tuple<string, string>> People(int count, int gender = (int)Gender.any)
         {
             List<Tuple<string, string>> people = new List<Tuple<string, string>>();
 
