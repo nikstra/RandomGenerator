@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RandomGenerator
+namespace RandomLib
 {
     /// <summary>
     /// Generates various random data such as names, vehicle makes and models, registration numbers and dates.
     /// </summary>
-    public class RandomGen
+    public class RandomGenerator
     {
         private Random _random = new Random();
 
@@ -188,29 +189,45 @@ namespace RandomGenerator
         };
 
         /// <summary>
-        /// Generates random vehicle make and models.
+        /// Generates a list of random T from a list given as argument.
         /// </summary>
         /// <param name="count">Number of items to generate.</param>
-        /// <param name="vehicles">A dictionary of lists models and brands as keys.</param>
-        /// <returns>A list of make/model tuples.</returns>
-        private List<Tuple<string, string>> VehicleModels(
-            int count, IReadOnlyDictionary<string, List<string>> vehicles)
+        /// <param name="items">A list of T.</param>
+        /// <returns></returns>
+        public IList GenericData<T>(int count, List<T> items)
         {
-            string[] keys = vehicles.Keys.ToArray();
-            List<Tuple<string, string>> vm = new List<Tuple<string, string>>();
+            IList randomList = new List<T>();
+
+            for (int i = 0; i < count; i++)
+                randomList.Add(items[_random.Next(items.Count)]);
+
+            return randomList;
+        }
+
+        /// <summary>
+        /// Generates random product brands and models from a dictionary passed as argument.
+        /// </summary>
+        /// <param name="count">Number of items to generate.</param>
+        /// <param name="items">A dictionary of lists models and brands as keys.</param>
+        /// <returns>A list of brand/model tuples.</returns>
+        public List<Tuple<string, string>> ProductModels(
+            int count, IReadOnlyDictionary<string, List<string>> items)
+        {
+            string[] keys = items.Keys.ToArray();
+            List<Tuple<string, string>> brandModel = new List<Tuple<string, string>>();
 
             for (int i = 0; i < count; i++)
             {
                 string key = keys[_random.Next(keys.Length)];
-                vm.Add(
+                brandModel.Add(
                     new Tuple<string, string>(
                         key,
-                        vehicles[key][_random.Next(vehicles[key].Count)]
+                        items[key][_random.Next(items[key].Count)]
                     )
                 );
             }
 
-            return vm;
+            return brandModel;
         }
 
         /// <summary>
@@ -220,7 +237,7 @@ namespace RandomGenerator
         /// <returns>A list of make/model tuples.</returns>
         public List<Tuple<string, string>> AeroplaneModels(int count)
         {
-            return VehicleModels(count, _aeroplanes);
+            return ProductModels(count, _aeroplanes);
         }
 
         /// <summary>
@@ -230,7 +247,7 @@ namespace RandomGenerator
         /// <returns>A list of make/model tuples.</returns>
         public List<Tuple<string, string>> BoatModels(int count)
         {
-            return VehicleModels(count, _boats);
+            return ProductModels(count, _boats);
         }
 
         /// <summary>
@@ -240,7 +257,7 @@ namespace RandomGenerator
         /// <returns>A list of make/model tuples.</returns>
         public List<Tuple<string, string>> BusModels(int count)
         {
-            return VehicleModels(count, _busses);
+            return ProductModels(count, _busses);
         }
 
         /// <summary>
@@ -250,7 +267,7 @@ namespace RandomGenerator
         /// <returns>A list of make/model tuples.</returns>
         public List<Tuple<string, string>> CarModels(int count)
         {
-            return VehicleModels(count, _cars);
+            return ProductModels(count, _cars);
         }
 
         /// <summary>
@@ -260,7 +277,7 @@ namespace RandomGenerator
         /// <returns>A list of make/model tuples.</returns>
         public List<Tuple<string, string>> MotorcykleModels(int count)
         {
-            return VehicleModels(count, _motorcycles);
+            return ProductModels(count, _motorcycles);
         }
 
         /// <summary>

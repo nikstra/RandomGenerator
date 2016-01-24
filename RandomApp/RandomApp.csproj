@@ -50,9 +50,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RandomGenerator\RandomGenerator.csproj">
+    <ProjectReference Include="..\RandomLib\RandomLib.csproj">
       <Project>{d5cbcec7-a57a-4afe-86cf-1f6ad2f98615}</Project>
-      <Name>RandomGenerator</Name>
+      <Name>RandomLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

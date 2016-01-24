@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RandomGenerator;
+using RandomLib;
 
 namespace RandomApp
 {
@@ -12,7 +9,7 @@ namespace RandomApp
         static void Main(string[] args)
         {
             int count = 100;
-            RandomGen randGen = new RandomGen();
+            RandomGenerator randGen = new RandomGenerator();
 
             foreach( Tuple<string, string> aeroplane in randGen.AeroplaneModels(count))
                 Console.WriteLine(aeroplane.Item1 + " " + aeroplane.Item2);
@@ -45,6 +42,14 @@ namespace RandomApp
 
             foreach (int value in randGen.Integers(count, 0, 10))
                 Console.WriteLine(value);
+
+            foreach (string item in randGen.GenericData<string>(count, new List<string> {
+                    "Carol", "Daddys Home", "Den gode dinosaurien", "En man som heter Ove",
+                    "En underbar jävla jul", "In the Heart of the Sea", "Star Wars: The Force Awakens",
+                    "Suffragette", "The Hateful Eight", "The Hunger Games - Mockingjay Part 2" }))
+
+                Console.WriteLine(item);
         }
     }
 }
+
