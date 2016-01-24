@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace RandomLib
 {
@@ -207,12 +206,12 @@ namespace RandomLib
         public List<Tuple<string, string>> ProductModels(
             int count, IReadOnlyDictionary<string, List<string>> items)
         {
-            string[] keys = items.Keys.ToArray();
+            List<string> keys = new List<string>(items.Keys);
             List<Tuple<string, string>> brandModel = new List<Tuple<string, string>>();
 
             for (int i = 0; i < count; i++)
             {
-                string key = keys[_random.Next(keys.Length)];
+                string key = keys[_random.Next(keys.Count)];
                 brandModel.Add(
                     new Tuple<string, string>(
                         key,
@@ -299,7 +298,7 @@ namespace RandomLib
                 regNums.Add(rn);
             }
 
-            return regNums.ToList();
+            return new List<string>(regNums);
         }
 
         /// <summary>
