@@ -146,12 +146,6 @@ namespace RandomLib
         // A-Z but not I,V and Q following the standards for Swedish vehicle registration numbers.
         private const string _regNumChars = "ABCDEFGHJKLMNOPRSTUWXYZ";
 
-        private enum _gender
-        {
-            female,
-            male
-        }
-
         private List<string>[] _firstNames = {
             new List<string>() {
                 "Agnes", "Alice", "Alicia", "Alma", "Alva", "Amanda", "Amelia", "Anna", "Astrid", "Celine", "Cornelia", "Ebba", "Edith",
@@ -324,25 +318,69 @@ namespace RandomLib
         }
 
         /// <summary>
+        /// Generates a random first name.
+        /// </summary>
+        /// <param name="gender">Gender (0=female, 1=male, 2=both).</param>
+        /// <returns>A name as a string.</returns>
+        public string FirstName(int gender = (int)Gender.both)
+        {
+            if (gender == (int)Gender.both)
+                gender = _random.Next(2);
+
+            return _firstNames[gender][_random.Next(_firstNames[gender].Count)];
+        }
+
+        /// <summary>
+        /// Generates a random list of first names.
+        /// </summary>
+        /// <param name="count">Number of names to generate.</param>
+        /// <param name="gender">Gender (0=female, 1=male, 2=both).</param>
+        /// <returns>A list of first names as strings.</returns>
+        public List<string> FirstNames(int count, int gender = (int)Gender.both)
+        {
+            List<string> names = new List<string>();
+
+            for (int i = 0; i < count; i++)
+                names.Add(FirstName(gender));
+
+            return names;
+        }
+
+        /// <summary>
+        /// Generates a random last name.
+        /// </summary>
+        /// <returns>A last name as a string.</returns>
+        public string LastName()
+        {
+            return _lastNames[_random.Next(_lastNames.Count)];
+        }
+
+        /// <summary>
+        /// Generates a random list of last names.
+        /// </summary>
+        /// <param name="count">Number of names to generate.</param>
+        /// <returns>A list of last names as strings.</returns>
+        public List<string> LastNames(int count)
+        {
+            List<string> names = new List<string>();
+
+            for (int i = 0; i < count; i++)
+                names.Add(LastName());
+
+            return names;
+        }
+
+        /// <summary>
         /// Generates random human names.
         /// </summary>
         /// <param name="count">Number of items to generate.</param>
         /// <returns>A list of first name/last name tuples.</returns>
-        public List<Tuple<string, string>> People(int count)
+        public List<Tuple<string, string>> People(int count, int gender = (int)Gender.both)
         {
             List<Tuple<string, string>> people = new List<Tuple<string, string>>();
 
             for (int i = 0; i < count; i++)
-            {
-                int gender = _random.Next(2);
-
-                people.Add(
-                    new Tuple<string, string>(
-                        _firstNames[gender][_random.Next(_firstNames[gender].Count)],
-                        _lastNames[_random.Next(_lastNames.Count)]
-                    )
-                );
-            }
+                people.Add(new Tuple<string, string>(FirstName(gender), LastName()));
 
             return people;
         }
