@@ -100,7 +100,6 @@ namespace RandomApp
                     "Carol", "Daddys Home", "Den gode dinosaurien", "En man som heter Ove",
                     "En underbar jävla jul", "In the Heart of the Sea", "Star Wars: The Force Awakens",
                     "Suffragette", "The Hateful Eight", "The Hunger Games - Mockingjay Part 2" }))
-
                 Console.WriteLine(item);
             Console.WriteLine();
         }
