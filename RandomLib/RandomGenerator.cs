@@ -182,14 +182,14 @@ namespace RandomLib
         };
 
         /// <summary>
-        /// Generates a list of random T from a list given as argument.
+        /// Generates a List of random T from a List given as argument.
         /// </summary>
         /// <param name="count">Number of items to generate.</param>
-        /// <param name="items">A list of T.</param>
+        /// <param name="items">A List of T.</param>
         /// <returns></returns>
-        public IList GenericData<T>(int count, List<T> items)
+        public List<T> GenericData<T>(int count, List<T> items)
         {
-            IList randomList = new List<T>();
+            List<T> randomList = new List<T>();
 
             for (int i = 0; i < count; i++)
                 randomList.Add(items[_random.Next(items.Count)]);
@@ -201,8 +201,8 @@ namespace RandomLib
         /// Generates random product brands and models from a dictionary passed as argument.
         /// </summary>
         /// <param name="count">Number of items to generate.</param>
-        /// <param name="items">A dictionary of lists models and brands as keys.</param>
-        /// <returns>A list of brand/model tuples.</returns>
+        /// <param name="items">A dictionary of Lists models and brands as keys.</param>
+        /// <returns>A List of brand/model tuples.</returns>
         public List<Tuple<string, string>> ProductModels(
             int count, IReadOnlyDictionary<string, List<string>> items)
         {
@@ -227,7 +227,7 @@ namespace RandomLib
         /// Generates random aeroplane make and models.
         /// </summary>
         /// <param name="count">Number of items to generate.</param>
-        /// <returns>A list of make/model tuples.</returns>
+        /// <returns>A List of make/model tuples.</returns>
         public List<Tuple<string, string>> AeroplaneModels(int count)
         {
             return ProductModels(count, _aeroplanes);
@@ -237,7 +237,7 @@ namespace RandomLib
         /// Generates random boat make and models.
         /// </summary>
         /// <param name="count">Number of items to generate.</param>
-        /// <returns>A list of make/model tuples.</returns>
+        /// <returns>A List of make/model tuples.</returns>
         public List<Tuple<string, string>> BoatModels(int count)
         {
             return ProductModels(count, _boats);
@@ -247,7 +247,7 @@ namespace RandomLib
         /// Generates random bus make and models.
         /// </summary>
         /// <param name="count">Number of items to generate.</param>
-        /// <returns>A list of make/model tuples.</returns>
+        /// <returns>A List of make/model tuples.</returns>
         public List<Tuple<string, string>> BusModels(int count)
         {
             return ProductModels(count, _busses);
@@ -257,7 +257,7 @@ namespace RandomLib
         /// Generates random car make and models.
         /// </summary>
         /// <param name="count">Number of items to generate.</param>
-        /// <returns>A list of make/model tuples.</returns>
+        /// <returns>A List of make/model tuples.</returns>
         public List<Tuple<string, string>> CarModels(int count)
         {
             return ProductModels(count, _cars);
@@ -267,7 +267,7 @@ namespace RandomLib
         /// Generates random motorcykle make and models.
         /// </summary>
         /// <param name="count">Number of items to generate.</param>
-        /// <returns>A list of make/model tuples.</returns>
+        /// <returns>A List of make/model tuples.</returns>
         public List<Tuple<string, string>> MotorcykleModels(int count)
         {
             return ProductModels(count, _motorcycles);
@@ -278,7 +278,7 @@ namespace RandomLib
         /// </summary>
         /// <param name="count">Number of items to generate.</param>
         /// <param name="countryCode">Generate registration numbers used by specified country.</param>
-        /// <returns>A list of registration numbers (limited to 12167000 items).</returns>
+        /// <returns>A List of registration numbers (limited to 12167000 items).</returns>
         public List<string> RegNumbers(int count, string countryCode = "sv")
         {
             // Maximum possible registration numbers: 23*23*23*10*10*10 = 12167000
@@ -305,7 +305,7 @@ namespace RandomLib
         /// Generates random colors.
         /// </summary>
         /// <param name="count">Number of items to generate.</param>
-        /// <returns>A list of colors.</returns>
+        /// <returns>A List of colors.</returns>
         public List<string> Colors(int count)
         {
             List<string> colors = new List<string>();
@@ -334,7 +334,7 @@ namespace RandomLib
         /// </summary>
         /// <param name="count">Number of names to generate.</param>
         /// <param name="gender">Gender (0=female, 1=male, 2=any).</param>
-        /// <returns>A list of first names as strings.</returns>
+        /// <returns>A List of first names as strings.</returns>
         public List<string> FirstNames(int count, int gender = (int)Gender.any)
         {
             List<string> names = new List<string>();
@@ -358,7 +358,7 @@ namespace RandomLib
         /// Generates a random list of last names.
         /// </summary>
         /// <param name="count">Number of names to generate.</param>
-        /// <returns>A list of last names as strings.</returns>
+        /// <returns>A List of last names as strings.</returns>
         public List<string> LastNames(int count)
         {
             List<string> names = new List<string>();
@@ -373,7 +373,7 @@ namespace RandomLib
         /// Generates random human names.
         /// </summary>
         /// <param name="count">Number of items to generate.</param>
-        /// <returns>A list of first name/last name tuples.</returns>
+        /// <returns>A List of first name/last name tuples.</returns>
         public List<Tuple<string, string>> People(int count, int gender = (int)Gender.any)
         {
             List<Tuple<string, string>> people = new List<Tuple<string, string>>();
@@ -405,7 +405,7 @@ namespace RandomLib
         /// <param name="count">Number of DateTimes to generate.</param>
         /// <param name="from">Earliest DateTime for generated value.</param>
         /// <param name="to">Latest DateTime for the generated value.</param>
-        /// <returns>A list of random DateTimes in the range given as parameters.</returns>
+        /// <returns>A List of random DateTimes in the range given as parameters.</returns>
         public List<DateTime> DatesAndTimes(int count, DateTime from, DateTime to)
         {
             List<DateTime> dateTimes = new List<DateTime>();
@@ -422,7 +422,7 @@ namespace RandomLib
         /// <param name="count">Number of integers to generate.</param>
         /// <param name="minValue">Passed to Random.Next() as minValue.</param>
         /// <param name="maxValue">Passed to Random.Next() as maxValue.</param>
-        /// <returns>A list of integers.</returns>
+        /// <returns>A List of integers.</returns>
         public List<int> Integers(int count, int minValue, int maxValue)
         {
             List<int> ints = new List<int>();
