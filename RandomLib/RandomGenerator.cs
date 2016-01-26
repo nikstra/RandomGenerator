@@ -133,7 +133,7 @@ namespace RandomLib
             }
         };
 
-        private string[] _colors = {
+        private List<string> _colors = new List<string> {
             "akvamarin", "aprikos", "babyblå", "becksvart", "beige", "blodröd", "blå", "blåklintsblå", "blåvit", "brandgul", "brun",
             "bärnstensgul", "cerise", "citrongul", "cyan", "fuchsia", "gredelin", "gräddvit", "grå", "grön", "gul", "gyllenbrun",
             "havsblå", "indigo", "isabellafärgad", "isblå", "jeansblå", "kaffebrun", "kaffefärgad", "kaki", "karmosinröd",
@@ -311,7 +311,7 @@ namespace RandomLib
             List<string> colors = new List<string>();
 
             for (int i = 0; i < count; i++)
-                colors.Add(_colors[_random.Next(_colors.Length)]);
+                colors.Add(_colors[_random.Next(_colors.Count)]);
 
             return colors;
         }
