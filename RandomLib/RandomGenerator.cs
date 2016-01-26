@@ -85,6 +85,11 @@ namespace RandomLib
             { "Audi", new List<string> {
                 "80", "100", "A1", "A2", "A3", "A4", "A5", "A6", "A8", "Quattro", "R8", "TT", "V8" }
             },
+            { "Citroën", new List<string> {
+                "Ami", "Axel", "AX", "Berline 7", "Berline 11", "Berline 15", "Berlingo", "BX", "C-Crosser", "CX", "2CV", "C1", "C2",
+                "C3", "C4", "C5", "C6", "C8", "C15", "Dyane", "DS", "DS3", "DS4", "DS5", "DS5 LS", "DS6 WR", "GS", "GS Birotor", "GSA",
+                "ID", "Jumpy", "Jumper", "LN", "LNA", "Méhari", "Saxo", "SM", "Traction Avant", "Visa", "XM", "Xantia", "Xsara", "ZX" }
+            },
             { "Fiat", new List<string> {
                 "124", "125", "131", "500", "600", "Croma", "Punto", "Ritmo", "Tipo", "Uno", "X1/9" }
             },
@@ -92,13 +97,19 @@ namespace RandomLib
                 "Cortina", "Fairlane", "Focus", "Escort", "Granada", "Scorpio", "Sierra", "Taunus", "Zephyr" }
             },
             { "Opel", new List<string> {
-                "Ascona", "Astra", "Kadett", "Kapitän", "Record" }
+                "Admiral", "Agila", "Ampera", "Antara", "Ascona", "Astra", "Blitz", "Calibra", "Campo", "Combo", "Commodore", "Corsa",
+                "Diplomat", "Frontera", "GT", "Insignia", "Kadett", "Kapitän", "Laubfrosch", "Manta", "Meriva", "Monterey", "Monza",
+                "Olympia", "Omega", "Rekord", "Senator", "Signum", "Sintra", "Speedster", "Tigra", "Vectra", "Vivaro", "Zafira" }
             },
             { "Porsche", new List<string> {
                 "911", "914", "924", "928", "944", "Boxter", "Carrera GT", "Cayenne" }
             },
             { "Lada", new List<string> {
                 "Granta", "Largus Cross", "Niva" }
+            },
+            { "Peugeot", new List<string> {
+                "1007", "104", "106", "107", "203", "204", "205", "206", "207", "208", "3008", "304", "305", "306", "307", "308",
+                "309", "4007", "403", "404", "405", "406", "407", "5008", "504", "505", "508", "604", "605", "607", "806", "807" }
             },
             { "Renault", new List<string> {
                 "Clio", "Espace", "Kangoo", "Megane", "R4", "R5", "R8", "R14", "R16" }
