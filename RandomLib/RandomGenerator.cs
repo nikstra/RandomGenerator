@@ -274,7 +274,7 @@ namespace RandomLib
         }
 
         /// <summary>
-        /// Generates random motorcykle make and models.
+        /// Generates random motorcycle make and models.
         /// </summary>
         /// <param name="count">Number of items to generate.</param>
         /// <returns>A List of make/model tuples.</returns>
@@ -318,12 +318,7 @@ namespace RandomLib
         /// <returns>A List of colors.</returns>
         public List<string> Colors(int count)
         {
-            List<string> colors = new List<string>();
-
-            for (int i = 0; i < count; i++)
-                colors.Add(_colors[_random.Next(_colors.Count)]);
-
-            return colors;
+            return GenericData<string>(count, _colors);
         }
 
         /// <summary>
