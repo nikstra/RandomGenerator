@@ -318,7 +318,7 @@ namespace RandomLib
         /// <returns>A List of colors.</returns>
         public List<string> Colors(int count)
         {
-            return GenericData<string>(count, _colors);
+            return GenericData(count, _colors);
         }
 
         /// <summary>
