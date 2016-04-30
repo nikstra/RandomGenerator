@@ -86,7 +86,7 @@ namespace RandomApp
             Console.WriteLine();
 
             Console.WriteLine("Dates and times:");
-            foreach (DateTime dateTime in randGen.DatesAndTimes(count, new DateTime(2015, 1, 1, 0, 0, 0), DateTime.Now))
+            foreach (DateTime dateTime in randGen.DatesAndTimes(new DateTime(2015, 1, 1, 0, 0, 0), DateTime.Now, count))
                 Console.WriteLine(dateTime);
             Console.WriteLine();
 
@@ -96,10 +96,10 @@ namespace RandomApp
             Console.WriteLine();
 
             Console.WriteLine("Generic data (movie titles):");
-            foreach (string item in randGen.GenericData<string>(count, new List<string> {
+            foreach (string item in randGen.GenericData<List<string>>(new List<string> {
                     "Carol", "Daddys Home", "Den gode dinosaurien", "En man som heter Ove",
                     "En underbar jävla jul", "In the Heart of the Sea", "Star Wars: The Force Awakens",
-                    "Suffragette", "The Hateful Eight", "The Hunger Games - Mockingjay Part 2" }))
+                    "Suffragette", "The Hateful Eight", "The Hunger Games - Mockingjay Part 2" }, count))
                 Console.WriteLine(item);
             Console.WriteLine();
         }

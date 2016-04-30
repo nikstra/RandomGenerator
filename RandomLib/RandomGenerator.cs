@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace RandomLib
@@ -8,7 +9,7 @@ namespace RandomLib
     /// </summary>
     public class RandomGenerator
     {
-        private Random _random = new Random();
+        private static Random _random = new Random();
 
         private IReadOnlyDictionary<string, List<string>> _aeroplanes = new Dictionary<string, List<string>> {
             { "Airbus", new List<string> {
@@ -192,14 +193,17 @@ namespace RandomLib
         };
 
         /// <summary>
-        /// Generates a List of random T from a List given as argument.
+        /// Generates a T (which implements IList) with elements in random order based on the T given as argument.
         /// </summary>
+        /// <param name="items">A T that implements IList.</param>
         /// <param name="count">Number of items to generate.</param>
-        /// <param name="items">A List of T.</param>
-        /// <returns></returns>
-        public List<T> GenericData<T>(int count, List<T> items)
+        /// <returns>T with elements in random order.</returns>
+        public T GenericData<T>(T items, int count = 0) where T : IList, new()
         {
-            List<T> randomList = new List<T>();
+            if (items == null) throw new ArgumentNullException();
+            if (count == 0) count = items.Count;
+
+            T randomList = new T();
 
             for (int i = 0; i < count; i++)
                 randomList.Add(items[_random.Next(items.Count)]);
@@ -214,7 +218,7 @@ namespace RandomLib
         /// <param name="items">A dictionary of Lists models and brands as keys.</param>
         /// <returns>A List of brand/model tuples.</returns>
         public List<Tuple<string, string>> ProductModels(
-            int count, IReadOnlyDictionary<string, List<string>> items)
+            IReadOnlyDictionary<string, List<string>> items, int count)
         {
             List<string> keys = new List<string>(items.Keys);
             List<Tuple<string, string>> brandModel = new List<Tuple<string, string>>();
@@ -240,7 +244,7 @@ namespace RandomLib
         /// <returns>A List of make/model tuples.</returns>
         public List<Tuple<string, string>> AeroplaneModels(int count)
         {
-            return ProductModels(count, _aeroplanes);
+            return ProductModels(_aeroplanes, count);
         }
 
         /// <summary>
@@ -250,7 +254,7 @@ namespace RandomLib
         /// <returns>A List of make/model tuples.</returns>
         public List<Tuple<string, string>> BoatModels(int count)
         {
-            return ProductModels(count, _boats);
+            return ProductModels(_boats, count);
         }
 
         /// <summary>
@@ -260,7 +264,7 @@ namespace RandomLib
         /// <returns>A List of make/model tuples.</returns>
         public List<Tuple<string, string>> BusModels(int count)
         {
-            return ProductModels(count, _busses);
+            return ProductModels(_busses, count);
         }
 
         /// <summary>
@@ -270,7 +274,7 @@ namespace RandomLib
         /// <returns>A List of make/model tuples.</returns>
         public List<Tuple<string, string>> CarModels(int count)
         {
-            return ProductModels(count, _cars);
+            return ProductModels(_cars, count);
         }
 
         /// <summary>
@@ -280,7 +284,7 @@ namespace RandomLib
         /// <returns>A List of make/model tuples.</returns>
         public List<Tuple<string, string>> MotorcykleModels(int count)
         {
-            return ProductModels(count, _motorcycles);
+            return ProductModels(_motorcycles, count);
         }
 
         /// <summary>
@@ -318,7 +322,7 @@ namespace RandomLib
         /// <returns>A List of colors.</returns>
         public List<string> Colors(int count)
         {
-            return GenericData(count, _colors);
+            return GenericData(_colors, count);
         }
 
         /// <summary>
@@ -407,11 +411,11 @@ namespace RandomLib
         /// <summary>
         /// Generates a list of random dates and times.
         /// </summary>
-        /// <param name="count">Number of DateTimes to generate.</param>
         /// <param name="from">Earliest DateTime for generated value.</param>
         /// <param name="to">Latest DateTime for the generated value.</param>
+        /// <param name="count">Number of DateTimes to generate.</param>
         /// <returns>A List of random DateTimes in the range given as parameters.</returns>
-        public List<DateTime> DatesAndTimes(int count, DateTime from, DateTime to)
+        public List<DateTime> DatesAndTimes(DateTime from, DateTime to, int count)
         {
             List<DateTime> dateTimes = new List<DateTime>();
 
