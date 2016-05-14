@@ -167,7 +167,7 @@ namespace RandomLib
         /// <returns>A List of first names as strings.</returns>
         public List<string> FirstNames(int count, int gender = (int)Gender.any)
         {
-            List<string> names = new List<string>();
+            List<string> names = new List<string>(count);
 
             for (int i = 0; i < count; i++)
                 names.Add(FirstName(gender));
@@ -191,7 +191,7 @@ namespace RandomLib
         /// <returns>A List of last names as strings.</returns>
         public List<string> LastNames(int count)
         {
-            List<string> names = new List<string>();
+            List<string> names = new List<string>(count);
 
             for (int i = 0; i < count; i++)
                 names.Add(LastName());
