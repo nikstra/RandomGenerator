@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 namespace RandomLib
 {
@@ -118,17 +119,18 @@ namespace RandomLib
             if (count > 12167000) count = 12167000;
 
             HashSet<string> regNums = new HashSet<string>();
+            StringBuilder rn = new StringBuilder(6);
 
             while (regNums.Count < count)
             {
-                string rn = "";
+                rn.Clear();
 
                 for (int i = 0; i < 3; i++)
-                    rn += _regNumChars[_random.Next(_regNumChars.Length)];
+                    rn.Append(_regNumChars[_random.Next(1, _regNumChars.Length)]);
 
-                rn += string.Format("{0:D3}", _random.Next(1000));
+                rn.AppendFormat("{0:D3}", _random.Next(1000));
 
-                regNums.Add(rn);
+                regNums.Add(rn.ToString());
             }
 
             return new List<string>(regNums);
